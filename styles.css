@@ -339,3 +339,28 @@ nav .menu-list li a {
         font-size: 14px;
     }
 }
+
+/* Dim background overlay */
+.menu-overlay {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.4);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        z-index: 900;
+    }
+    .menu-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
