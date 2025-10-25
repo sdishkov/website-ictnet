@@ -223,3 +223,119 @@ nav a:hover {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+
+
+/* Responsive / Mobile styles */
+:root {
+    --text-dark: #0d1b2a;
+    --background-light: #ffffff;
+}
+
+/* Desktop nav uses inline links; menu-list hidden by default on desktop */
+nav {
+    position: relative;
+}
+
+/* Hide menu toggle on desktop */
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Menu list defaults (desktop: horizontal using existing links) */
+nav .menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+nav .menu-list li {
+    margin-left: 20px;
+}
+/* Remove default anchor margin on li links */
+nav .menu-list li a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Slide-out menu styles for mobile */
+@media (max-width: 768px) {
+    header {
+        padding: 12px 18px;
+    }
+    /* show hamburger */
+    .menu-toggle {
+        display: block;
+        color: white;
+    }
+    /* hide the inline horizontal list and use slide-out */
+    nav .menu-list {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 240px;
+        background: var(--background-light);
+        color: var(--text-dark);
+        flex-direction: column;
+        padding-top: 70px;
+        transform: translateX(100%);
+        transition: transform 0.35s ease;
+        box-shadow: -4px 0 12px rgba(0,0,0,0.12);
+        z-index: 1000;
+    }
+    nav .menu-list.show-menu {
+        transform: translateX(0);
+    }
+    nav .menu-list li {
+        margin: 16px 20px;
+    }
+    nav .menu-list li a {
+        color: var(--text-dark);
+        font-size: 16px;
+    }
+    header {
+        justify-content: space-between;
+    }
+
+    /* Hero stacks vertically on mobile */
+    .hero {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        padding: 0;
+    }
+    .hero .left, .hero .right {
+        width: 100%;
+        height: 140px;
+    }
+    .hero .center-logo {
+        position: relative;
+        transform: none;
+        margin: 16px auto;
+        padding: 16px 24px;
+    }
+
+    /* Cards stack vertically */
+    .cards {
+        flex-direction: column;
+        gap: 16px;
+        padding: 0 16px;
+    }
+    .card {
+        margin: 10px 0;
+        width: auto;
+    }
+
+    /* Improve footer spacing */
+    footer {
+        padding: 24px 12px;
+        font-size: 14px;
+    }
+}
