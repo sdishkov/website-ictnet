@@ -1,0 +1,225 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fa;
+    color: #222;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: #0d1b2a;
+    color: white;
+}
+
+nav a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    display: flex;
+    height: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.stream {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left {
+    background: linear-gradient(to right, #1b263b, transparent);
+    color: white;
+}
+
+.right {
+    background: linear-gradient(to left, #1b263b, transparent);
+    color: white;
+}
+
+.center-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.card {
+    background: #e0e5ec;
+    margin: 0 20px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background: #b9c2d1;
+}
+
+footer {
+    background: #0d1b2a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+:root {
+    --primary-blue: #0a3d62;
+    --accent-orange: #f39c12;
+}
+
+header {
+    background: var(--primary-blue);
+}
+
+nav a:hover {
+    color: var(--accent-orange);
+}
+
+.left {
+    background: linear-gradient(to right, var(--accent-orange), transparent);
+}
+
+.right {
+    background: linear-gradient(to left, var(--primary-blue), transparent);
+}
+
+.card {
+    border-left: 5px solid var(--accent-orange);
+}
+
+.page-header {
+    background: var(--primary-blue);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.social-links a {
+    color: var(--accent-orange);
+    margin: 0 10px;
+}
+
+/* Hero Stream Animation */
+.stream {
+    background-size: 200% 100%;
+    animation: flow 6s linear infinite;
+}
+
+@keyframes flow {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+/* Network & Security section styling */
+.network .service-card {
+    border-left: 5px solid var(--accent-orange);
+    transition: 0.3s;
+}
+
+.network .service-card:hover {
+    background: #ffd699; /* light orange hover */
+}
+
+/* Network & Security full orange theme */
+.network-hero {
+    background: var(--accent-orange);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.network-hero h1, .network-hero p {
+    color: white;
+}
+
+/* Homepage hero streams animation */
+.hero .stream {
+    background-size: 200% 100%;
+    animation: flow 8s linear infinite;
+}
+
+@keyframes flow {
+    0% { background-position: 200% 0; }
+    50% { background-position: 0 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Ensure streams have correct colors */
+.hero .left {
+    background: linear-gradient(to right, var(--accent-orange), transparent);
+}
+
+.hero .right {
+    background: linear-gradient(to left, var(--primary-blue), transparent);
+}
+
+/* Center logo styling */
+.hero .center-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.hero .center-logo:hover {
+    box-shadow: 0 0 50px rgba(243,156,18,0.9);
+}
+
+
+/* Subtle data flow effect on hero streams */
+.hero .left, .hero .right {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Create moving dots for left and right streams */
+.hero .left::after, .hero .right::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.4) 2px, transparent 2px);
+    background-size: 30px 30px;
+    animation: dataFlow 6s linear infinite;
+}
+
+.hero .right::after {
+    animation-direction: reverse;
+}
+
+@keyframes dataFlow {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
